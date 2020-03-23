@@ -1,0 +1,27 @@
+{
+  "name": "packages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "MuhammadQasimAli",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.0.6",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-session": "^1.4.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
+    "mongoose": "^5.9.2",
+    "mongose": "0.0.2-security",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
