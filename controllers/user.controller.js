@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
+const nodemailer = require("nodemailer");
 // Load User model
 const User = require("../models/User");
 
@@ -94,9 +95,8 @@ exports.contact=(req, res) => {
 
   console.log(emailMessage);
 
-  // res.redirect('/contactSuccess');
-
-  var transporter = nodemailer.createTransport({
+// Transpoter
+  let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: 'areejarshad1100@gmail.com',
@@ -105,9 +105,10 @@ exports.contact=(req, res) => {
   });
 
   var emailOptions = {
-    from: email,
-    to: 'areejansari49@gmail.com',
-    cc:'areejarshad1100@gmail.com',
+    from: '"Store Mail" <areejarshad1100@gmail.com>',
+    to: email,
+    to: 'Abubakarzoomii@gmail.com',
+    cc: 'areejarshad1100@gmail.com',
     subject: subject,
     text: emailMessage
   };

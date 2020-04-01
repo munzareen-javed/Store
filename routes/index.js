@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const url = require('url');
 const nodemailer = require('nodemailer');
+const userController = require('../controllers/user.controller');
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 
 // Welcome Page mean main page of website will show
@@ -13,7 +14,7 @@ router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 
 //for contact page
-router.get('/contact', forwardAuthenticated, (req, res) => res.render('contact'));
+router.get('/contact', forwardAuthenticated, (req, res) => res.render('contact1'));
 //for contact success
 router.get('/contactSuccess', (req, res) => {
   console.log('Request for contact send page recieved');
@@ -27,7 +28,9 @@ router.get('/contactError', (req, res) => {
 
 
 //for contact page
-router.get('/contact', forwardAuthenticated, (req, res) => res.render('contact'));
+router.get('/contact', forwardAuthenticated, (req, res) => res.render('contact1'));
+router.post('/contact', userController.contact);
+
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) =>
   res.render('dashboard', {
