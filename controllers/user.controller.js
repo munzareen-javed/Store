@@ -82,6 +82,49 @@ exports.loginUser = (req, res, next) => {
   })(req, res, next);
 };
 
+//Handle get request for contact us
+exports.contact=(req, res) => {
+  console.log("Request Received ...... ",req.body);
+  var name = req.body.firstName+ " " + req.body.lastName;
+  var email = req.body.email;
+  var enquiry = req.body.message;
+  var subject=req.body.subject;
+
+  var emailMessage = `Hi Admin  ${name},\n\nContact You.\n\nCustomer email is: ${email}.\n\nCustomer enquiry is: ${enquiry}\n.`;
+
+  console.log(emailMessage);
+
+  // res.redirect('/contactSuccess');
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'areejarshad1100@gmail.com',
+      pass: 'shaikh.123'
+    }
+  });
+
+  var emailOptions = {
+    from: email,
+    to: 'areejansari49@gmail.com',
+    cc:'areejarshad1100@gmail.com',
+    subject: subject,
+    text: emailMessage
+  };
+
+  //res.redirect ('/contactError');
+  transporter.sendMail(emailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.redirect('/contactError');
+    } else {
+      console.log('Message Sent: ' + info.response);
+      console.log('Email Message: ' + emailMessage);
+      res.redirect('/contactSuccess');
+    }
+  });
+}
+
 // Logout already logined user
 exports.logout = (req, res) => {
   req.logout();
