@@ -56,10 +56,16 @@
                         <span>2</span>
                     </a>
                 </div>
+    <% if( user ) {%>
                 <div class="user-access">
-                    <a href="#">Register</a>
-                    <a href="#" class="in">Sign in</a>
+                    <a href="/users/logout">Logout | <%= user.name %>  </a>
                 </div>
+    <% }else{ %>
+                <div class="user-access">
+                    <a href="/users/register">Register</a>
+                    <a href="/users/login" class="in">Sign in</a>
+                </div>
+    <% } %>
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a href="./index.html">Home</a></li>
@@ -72,7 +78,7 @@
                         </li>
                         <li><a href="./product-page.html">About</a></li>
                         <li><a href="./check-out.html">Blog</a></li>
-                        <li><a class="active" href="./contact.html">Contact</a></li>
+                        <li><a class="active" href="/contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>

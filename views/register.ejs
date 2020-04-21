@@ -4,6 +4,25 @@
       <h1 class="text-center mb-3">
         <i class="fas fa-user-plus"></i> Register
       </h1>
+<% if(typeof err != 'undefined' ){%>
+        <div class="alert alert-dismissible alert-danger">
+          <button class="close" type="button" data-dismiss="alert">&times;</button>
+          <strong><%= err %></strong> 
+        </div>  
+<% } %>
+<% if(success_msg != '' ){ %>
+                <div class="alert alert-dismissible alert-success">
+                <button class="close" type="button" data-dismiss="alert">&times;</button>
+                <strong><%= success_msg %></strong> 
+                </div>  
+<% } %>
+
+<% if( error != '' ){%>
+        <div class="alert alert-dismissible alert-danger">
+        <button class="close" type="button" data-dismiss="alert">&times;</button>
+        <strong><%= error %></strong>
+        </div>
+<% } %>
       <form action="/users/register" method="POST">
         <div class="form-group">
           <label for="name">Name</label>

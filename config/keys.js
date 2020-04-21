@@ -1,5 +1,9 @@
-//dbPassword = 'mongodb+srv://YOUR_USERNAME_HERE:'+ encodeURIComponent('YOUR_PASSWORD_HERE') + '@CLUSTER_NAME_HERE.mongodb.net/test?retryWrites=true';
-
-module.exports = {
-    mongoURI: `mongodb+srv://abubakar_malik:node.js.es6@cluster0-ujxkl.mongodb.net/store`
-}
+const mongoose = require('mongoose');
+//	Connect To DB
+mongoose.connect('mongodb+srv://abubakar_malik:node.js.es6@cluster0-ujxkl.mongodb.net/store',{useNewUrlParser: true },(err) =>{
+	if (!err) {
+		console.log("Connected to MongoDB");
+	}else{
+		console.log("Error in Connecting to DB "+err);
+	}
+});

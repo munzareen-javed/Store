@@ -20,6 +20,5 @@ router.post('/login', userController.loginUser);
 router.get('/logout', userController.logout);
 
 // contact
-router.post('/contact',userController.contact);
 
 module.exports = router;

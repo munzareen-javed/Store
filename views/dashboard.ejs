@@ -56,10 +56,16 @@
                         <span>2</span>
                     </a>
                 </div>
+ <% if( user ) {%>
                 <div class="user-access">
                     <a href="/users/logout">Logout | <%= user.name %>  </a>
-
                 </div>
+    <% }else{ %>
+                <div class="user-access">
+                    <a href="/users/register">Register</a>
+                    <a href="/users/login" class="in">Sign in</a>
+                </div>
+    <% } %>
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a class="active" href="./index.html">Home</a></li>
@@ -72,7 +78,7 @@
                         </li>
                         <li><a href="./product-page.html">About</a></li>
                         <li><a href="./check-out.html">Blog</a></li>
-                        <li><a href="./contact">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -81,7 +87,7 @@
     <!-- Header Info Begin -->
     <div class="header-info">
         <div class="container-fluid">
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-md-4">
                     <div class="header-item">
                         <img src="img/icons/delivery.png" alt="">
@@ -93,12 +99,12 @@
                         <img src="img/icons/voucher.png" alt="">
                         <p>20% Student Discount</p>
                     </div>
-                </div>
+                </div>-->
                 <div class="col-md-4 text-left text-xl-right">
-                    <div class="header-item">
+                   <!---- <div class="header-item">
                     <img src="img/icons/sales.png" alt="">
                     <p>30% off on dresses. Use code: 30OFF</p>
-                </div>
+                </div>-->
                 </div>
             </div>
         </div>
